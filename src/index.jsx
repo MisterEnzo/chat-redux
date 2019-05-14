@@ -2,20 +2,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, combineReducers } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import promiseMiddleware from 'redux-promise';
+import logger from 'redux-logger';
 
 // internal modules
 import App from './components/app';
 import '../assets/stylesheets/application.scss';
 
-// State and reducers
-const reducers = combineReducers({
-  changeMe: (state = null, action) => state
-});
+// reducer
+import rootReducer from './reducers/index';
+
 
 // render an instance of the component in the DOM
 ReactDOM.render(
-  <Provider store={createStore(reducers)}>
+  <Provider store={createStore(rootReducer, {}, applyMiddleware(promiseMiddleware, logger))}>
     <App />
   </Provider>,
   document.getElementById('root')
