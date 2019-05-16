@@ -2,7 +2,10 @@ import React from 'react';
 
 const Message = (props) => {
   return(
-    <div>message</div>
+    <div>
+      <p>{props.author}: {props.content}</p>
+      <p>Posted at: {props.timeStamp}</p>
+    </div>
   );
 };
 

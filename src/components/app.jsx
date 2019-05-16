@@ -1,5 +1,4 @@
 import React from 'react';
-
 import ChannelList from '../containers/channel_list';
 import Channel from '../containers/channel';
 import MessageBar from '../components/message_bar';
