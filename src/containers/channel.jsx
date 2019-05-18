@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+
+import { fetchMessages } from '../actions/index';
 
 import Message from '../components/message';
 
 class Channel extends Component {
+  constructor(props){
+    super(props);
+  }
+
+  componentWillMount() {
+    setTimeout(()=> {
+      this.props.fetchMessages()
+    }, 3000);
+  }
   render() {
     return(
       <div>
@@ -26,4 +38,11 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps, null)(Channel);
+function mapDispatchToProps(dispatch){
+  return bindActionCreators(
+    { fetchMessages: fetchMessages },
+    dispatch
+  )
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Channel);
