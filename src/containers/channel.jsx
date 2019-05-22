@@ -11,11 +11,15 @@ class Channel extends Component {
     super(props);
   }
 
-  componentWillMount() {
-    setTimeout(()=> {
-      this.props.fetchMessages()
-    }, 3000);
+  componentDidMount() {
+    const fetch = this.props.fetchMessages;
+    let interval = function(){
+      setInterval(fetch, 3000)
+    }
+    interval();
+    clearInterval(interval);
   }
+
   render() {
     return(
       <div>
