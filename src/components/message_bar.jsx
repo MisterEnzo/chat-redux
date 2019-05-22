@@ -18,13 +18,19 @@ class MessageBar extends Component {
     })
   }
 
+  onFormSend = () => {
+    this.props.postMessage(this.props.currentUser, this.state.message);
+    this.setState({
+      message: ''
+    });
+  }
+
   render() {
     return (
       <div>
-        <div>Message Bar Button</div>
         <input type='text' value={this.state.message} onChange={(event) => this.onFormChange(event.target.value)} />
         <input type='submit' value='Submit'
-               onClick={() => this.props.postMessage(this.props.currentUser, this.state.message)}
+               onClick={() => this.onFormSend()}
                className='btn'/>
       </div>
     );
