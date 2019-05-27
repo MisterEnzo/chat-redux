@@ -32,3 +32,7 @@ export function postMessage(currentUser, message) {
   });
   return {type: types.POST_MESSAGE, message: message};
 }
+
+export function selectChannel(channel) {
+  return {type: types.SELECT_CHANNEL, channel: channel};
+}
