@@ -23,7 +23,7 @@ class Channel extends Component {
   render() {
     return(
       <div>
-        <h1>Channel</h1>
+        <h1>Channel: {this.props.selectedChannel}</h1>
         {this.props.messages.map(({ author, content, created_at }) => {
           return(
             <Message author={author} content={content} timeStamp={created_at}
@@ -38,7 +38,8 @@ class Channel extends Component {
 
 function mapStateToProps(state){
   return {
-    messages: state.messages
+    messages: state.messages,
+    selectedChannel: state.selectedChannel
   }
 }
 

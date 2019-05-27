@@ -12,7 +12,7 @@ export default {
       "created_at":"2017-09-26T23:03:21.194Z"
     }
   ],
-  selectedChannel: ['general'],
+  selectedChannel: 'general',
   // currentUser: prompt("What is your username?") || `anonymous${Math.floor(10 + (Math.random() * 90))}`
   currentUser: "anon"
 }
