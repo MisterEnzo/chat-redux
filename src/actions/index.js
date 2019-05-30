@@ -9,6 +9,7 @@ export function fetchMessages(channel) {
   //   }
   // ]}
   // ---
+  console.log(channel);
   return fetch('https://wagon-chat.herokuapp.com/general/messages')
   .then((response) => {
     return response.json();

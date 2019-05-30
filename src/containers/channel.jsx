@@ -9,15 +9,20 @@ import Message from '../components/message';
 class Channel extends Component {
   constructor(props){
     super(props);
+    this.fetch = this.fetch.bind(this);
+  }
+
+  fetch() {
+    let channel = this.props.selectedChannel;
+    this.props.fetchMessages(channel);
   }
 
   componentDidMount() {
-    const fetch = this.props.fetchMessages;
-    let interval = function(){
-      setInterval(fetch, 3000)
-    }
-    interval();
-    clearInterval(interval);
+    this.interval = setInterval(this.fetch, 3000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval)
   }
 
   render() {
