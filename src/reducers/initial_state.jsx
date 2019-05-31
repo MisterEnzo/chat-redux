@@ -13,6 +13,6 @@ export default {
     }
   ],
   selectedChannel: 'general',
-  // currentUser: prompt("What is your username?") || `anonymous${Math.floor(10 + (Math.random() * 90))}`
-  currentUser: "anon"
+  currentUser: prompt("What is your username?") || `anonymous${Math.floor(10 + (Math.random() * 90))}`
+  // currentUser: "anon"
 }
