@@ -19,7 +19,7 @@ class MessageBar extends Component {
   }
 
   onFormSend = () => {
-    this.props.postMessage(this.props.currentUser, this.state.message);
+    this.props.postMessage(this.props.currentUser, this.state.message, this.selectedChannel);
     this.setState({
       message: ''
     });
@@ -45,7 +45,8 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state){
   return {
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    selectedChannel: state.selectedChannel
   }
 };
 

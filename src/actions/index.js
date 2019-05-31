@@ -9,8 +9,7 @@ export function fetchMessages(channel) {
   //   }
   // ]}
   // ---
-  console.log(channel);
-  return fetch('https://wagon-chat.herokuapp.com/general/messages')
+  return fetch(`https://wagon-chat.herokuapp.com/${channel}/messages`)
   .then((response) => {
     return response.json();
   })
@@ -20,9 +19,9 @@ export function fetchMessages(channel) {
 }
 
 // the code for posting works, now  you need to complete the action
-export function postMessage(currentUser, message) {
+export function postMessage(currentUser, message, channel) {
   const body = {author: currentUser, content: message};
-  const url = 'https://wagon-chat.herokuapp.com/general/messages';
+  const url = `https://wagon-chat.herokuapp.com/${channel}/messages`;
   const promise = fetch(url, {
     method: 'POST',
     headers: {
