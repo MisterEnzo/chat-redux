@@ -19,7 +19,9 @@ class MessageBar extends Component {
   }
 
   onFormSend = () => {
-    this.props.postMessage(this.props.currentUser, this.state.message, this.selectedChannel);
+    this.props.postMessage(this.props.currentUser,
+                           this.state.message,
+                           this.props.selectedChannel);
     this.setState({
       message: ''
     });
